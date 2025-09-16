@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Cesium Flight (Keyboard Controls)</title>
+
+    <!-- Cesium 1.82 via CDN (igual ao seu) -->
+    <script src="https://cesium.com/downloads/cesiumjs/releases/1.82/Build/Cesium/Cesium.js"></script>
+    <link
+      href="https://cesium.com/downloads/cesiumjs/releases/1.82/Build/Cesium/Widgets/widgets.css"
+      rel="stylesheet"
+    />
+
+    <!-- Seu CSS opcional -->
+    <link href="style.css" rel="stylesheet" />
+
+    <style>
+      html, body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      }
+      #topbar {
+        position: absolute;
+        z-index: 10;
+        top: 10px;
+        left: 10px;
+        background: rgba(0,0,0,0.55);
+        color: #fff;
+        padding: 8px 12px;
+        border-radius: 8px;
+        font-size: 14px;
+        line-height: 1.3;
+      }
+      #cesiumContainer {
+        width: 100%;
+        height: 100%;
+      }
+      #help {
+        margin: 6px 0 0;
+        opacity: 0.85;
+      }
+      #help kbd {
+        background: #222;
+        padding: 1px 5px;
+        border-radius: 4px;
+        margin-right: 2px;
+      }
+    </style>
+
+    <!-- Defina seu Cesium Ion token aqui -->
+    <script>
+      // substitua pelo seu token
+      Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJhMzVhN2ZiYS02YzBiLTQ3NzktOTAyMi1kNmEwMTgxOTNhMTIiLCJpZCI6MTcwODQ5LCJpYXQiOjE2OTY4NjIyNTJ9.VTAf5hLB5W97irE_U2IcsvYlDP9O9zKd4r9bCXytY98';
+      // usando CDN, não precisa de CESIUM_BASE_URL
+      // window.CESIUM_BASE_URL = '/cesium'; // apenas se servisse localmente via npm
+    </script>
+  </head>
+  <body>
+    <div id="topbar">
+      <div><strong>Flight sim</strong> — controles:</div>
+      <div id="help">
+        <kbd>W</kbd>/<kbd>S</kbd> pitch &nbsp;
+        <kbd>A</kbd>/<kbd>D</kbd> yaw &nbsp;
+        <kbd>Q</kbd>/<kbd>E</kbd> roll &nbsp;
+        <kbd>↑</kbd>/<kbd>↓</kbd> acelera/freia &nbsp;
+        <kbd>Espaço</kbd> pausa
+      </div>
+    </div>
+
+    <div id="cesiumContainer"></div>
+
+    <!-- Seu script com o avião + teclado (NÃO use type="module" se ele depender do Cesium global) -->
+    <script src="./main.js"></script>
+  </body>
+</html>
